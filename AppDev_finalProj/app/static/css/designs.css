@@ -6,7 +6,7 @@
   
   body {
     /* background-color: #d3d3d3; */
-    background-image: url('../images/bg.png');
+    background-image: url('../images/bg.jpg');
     background-size: cover; /* This property ensures the image covers the entire body */
     background-position: center;
     background-attachment: fixed; /* Set the background position as fixed */
@@ -22,7 +22,7 @@
 
   /*NAVBAR*/
   .navbar {
-    background-color: red;
+    background-color: rgb(85, 79, 79, 0.7);
     overflow: hidden;
     text-align: center;
     position: sticky;
@@ -56,9 +56,9 @@
   /*FOOTER*/
   footer {
     position: fixed;
-    height: 20vh;
+    height: 120px;
     width: 100%;
-    background-color: red;
+    background-color: rgb(85, 79, 79, 0.7);
     color: white;
     bottom: 0;
     text-align: center;
@@ -71,46 +71,47 @@
     min-height: 100vh;
   }
   
-  /*-----------------------------TRAINER_PAGE------------------------------------*/
-  /*TRAINERS*/
-  .trainers-container {
+  /*-----------------------------TEACHER_PAGE------------------------------------*/
+  /*TEACHERS*/
+  .teachers-container {
     min-height: auto;
     border-collapse: collapse;
     margin: 1%;
     display: flex;
     justify-content: center;
+    width: 100%;
 
     /* align-items: center; */
   }
   
-  .trainers-container table {
+  .teachers-container table {
     border-collapse: collapse;
     background-color: white;
     border: 2px solid #dddddd;
     
   }
   
-  .trainers-container th,
-  .trainers-container td {
+  .teachers-container th,
+  .teachers-container td {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
   }
   
-  .trainers-container th {
+  .teachers-container th {
     background-color: white;
   }
   
-  .trainers-container td pre {
+  .teachers-container td pre {
     margin: 0;
   }
   
-  .trainers-container td b {
+  .teachers-container td b {
     display: block;
     margin-bottom: 5px;
   }
   
-  .trainers-container td b {
+  .teachers-container td b {
     color: #000000;
   }
   

@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <link rel="stylesheet" href="{% static '../static/css/style.css' %}" />
+    <link rel="stylesheet" href="{% static '../static/css/designs.css' %}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href='https://fonts.googleapis.com/css?family=Roboto Slab' rel='stylesheet'>
     <title>{% block title %} CardQuest Master {% endblock %}</title>
@@ -17,9 +17,9 @@
     <!-- navbar -->
     <section class="navbar">
       <a href="{% url 'home' %}" class="btn"> Home </a>
-      <a href="{% url 'trainer-list' %}" class="btn"> Trainer </a>
-      <a href="{% url 'pokemoncard-list' %}" class="btn"> Pokemon Card </a>
-      <a href="{% url 'collection-list' %}" class="btn" id="active"> Collection </a>
+      <a href="{% url 'teacher-list' %}" class="btn"> Teachers </a>
+      <a href="{% url 'student-list' %}" class="btn" id="active"> Students </a>
+      <a href="{% url 'guardian-list' %}" class="btn"> Guardians </a>
     </section>
 
     <!-- Main content of your webpage -->

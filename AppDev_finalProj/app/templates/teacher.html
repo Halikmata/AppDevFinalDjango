@@ -1,0 +1,62 @@
+{% extends 'teachernav.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="stylesheet" href="{% static '../static/css/designs.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto Slab' rel='stylesheet'>
+    <title>List of Teachers</title>
+  </head>
+  <body>
+
+    {% block content %}
+    <!--Teachers-->
+    <main>
+    <section class="teachers-container">
+      <table class="styled-table">
+        <tbody>
+          <tr>
+            <th>ID Picture</th>
+            <th>Teacher Name</th>
+            <th>Subjects Handled</th>
+            <th>Email</th>
+            <th>Years Teaching</th>
+            <th>Active Status</th>
+          </tr>
+
+          {% for object in object_list %}
+
+          <!--ASH-->
+            <td><img src="{{ object.image.url }}" alt="{{ "can't load image" }} Image"></td>
+            <td>{{ object.name }}</td>
+            <td>
+                {% if object.subjects_taught.all %}
+                    {% for subject in object.subjects_taught.all %}
+                        {{ subject.subject_name }}{% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                {% else %}
+                    No Subjects Taught
+                {% endif %}
+            </td>
+            <td>{{ object.email }}</td>
+            <td>{{ object.experience_years }}</td>
+            <td>{% if object.is_active %}Active{% else %}Inactive{% endif %}</td>
+          </tr>
+          {% empty %}
+          <tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+  </main>
+  {% endblock %}
+  {% include 'includes/footer.html' %}
+  </body>
+</html>

@@ -21,7 +21,7 @@ class Guardian(BaseModel):
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
     
-class Subject(models.Model):
+class Subject(BaseModel):
     subject_name = models.CharField(max_length=100)
     code = models.CharField(max_length=20, unique=True)
     prerequisite = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True)
@@ -63,7 +63,7 @@ class Teacher(BaseModel):
     def __str__(self):
         return self.name
 
-class Detention(models.Model):
+class Detention(BaseModel):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
     incident_time = models.DateTimeField()

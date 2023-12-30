@@ -1,0 +1,59 @@
+{% extends 'studentnav.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="stylesheet" href="{% static '../static/css/designs.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto Slab' rel='stylesheet'>
+    <title>List of students</title>
+  </head>
+  <body>
+
+    {% block content %}
+    <!--Teachers-->
+    <main>
+    {% comment %} <a href="{% url 'teacher-add' %}" class="btn btn-outline-primary">Add New Teacher</a><br> {% endcomment %}
+    <section class="teachers-container">
+      <table class="styled-table">
+        <tbody>
+          <tr>
+            <th>Student Name</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Birth Date</th>
+            <th>Phone Number</th>
+            <th>Admission Date</th>
+            <th>Active Status</th>
+            <th>Guardian</th>
+          </tr>
+
+          {% for object in object_list %}
+
+          <!--objects-->
+            <td>{{ object.first_name }} {{ object.last_name }}</td>
+            <td>{{ object.email }}</td>
+            <td>{{ object.address }}</td>
+            <td>{{ object.date_of_birth }}</td>
+            <td>{{ object.phone_number }}</td>
+            <td>{{ object.admission_date }}</td>
+            <td>{% if object.is_active %}Active{% else %}Inactive{% endif %}</td>
+            <td>{{ object.guardian.first_name }} {{ object.guardian.last_name }}</td>
+          </tr>
+          {% empty %}
+          <tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+  </main>
+  {% endblock %}
+  {% include 'includes/footer.html' %}
+  </body>
+</html>
