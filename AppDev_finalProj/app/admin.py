@@ -1,6 +1,9 @@
 from django.contrib import admin
 from .models import Guardian, Student, Teacher, Detention, Subject
 
+class SubjectInline(admin.TabularInline):
+    model = Teacher.subjects_taught.through
+    extra = 1
 @admin.register(Guardian)
 class GuardiansAdmin(admin.ModelAdmin):
     list_display = ['first_name', 'last_name', 'email', 'phone_number', 'is_emergency_contact']
@@ -14,9 +17,15 @@ class StudentsAdmin(admin.ModelAdmin):
 
 @admin.register(Teacher)
 class TeachersAdmin(admin.ModelAdmin):
-    list_display = ['name', 'birthdate', 'subject', 'email', 'joining_date', 'is_active']
+    list_display = ['name', 'birthdate', 'get_subjects_taught', 'email', 'joining_date', 'is_active']
     search_fields = ['name', 'email', 'phone_number']
     list_filter = ['is_active', 'joining_date']
+    inlines = [SubjectInline]
+
+    def get_subjects_taught(self, obj):
+        return ", ".join([str(subject) for subject in obj.subjects_taught.all()])
+    
+    get_subjects_taught.short_description = 'Subjects Taught'
 
 @admin.register(Detention)
 class DetentionsAdmin(admin.ModelAdmin):
