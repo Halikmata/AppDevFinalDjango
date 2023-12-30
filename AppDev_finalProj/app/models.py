@@ -49,7 +49,7 @@ class Student(BaseModel):
 class Teacher(BaseModel):
     name = models.CharField(max_length=100, null=True, blank=True)
     birthdate = models.DateField(null=True, blank=True)
-    subject = models.ForeignKey(Subject, on_delete=models.SET_NULL, null=True, blank=True)
+    subjects_taught = models.ManyToManyField(Subject, related_name='teachers')
     email = models.EmailField(max_length=100, null=True, blank=True)
     address = models.TextField(null=True, blank=True)
     phone_number = models.CharField(max_length=20, null=True, blank=True)
