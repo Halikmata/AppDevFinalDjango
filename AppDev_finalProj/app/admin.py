@@ -4,6 +4,7 @@ from .models import Guardian, Student, Teacher, Detention, Subject
 class SubjectInline(admin.TabularInline):
     model = Teacher.subjects_taught.through
     extra = 1
+
 @admin.register(Guardian)
 class GuardiansAdmin(admin.ModelAdmin):
     list_display = ['first_name', 'last_name', 'email', 'phone_number', 'is_emergency_contact']
