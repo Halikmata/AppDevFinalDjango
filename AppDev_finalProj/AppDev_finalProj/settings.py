@@ -15,10 +15,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-STATICFILES_DIRS = [
-    BASE_DIR / "app/teachers_images",
-    # Add more paths if needed
-]
 # Application definition
 
 INSTALLED_APPS = [
