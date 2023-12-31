@@ -540,3 +540,24 @@
     color: #ffffff; /* Change color on hover if desired */
     /* Add additional hover effects */
   }
+
+  .button-container {
+    text-align: center;
+    margin-top: 20px; /* Adjust the margin as needed */
+  }
+  
+  .button-container button {
+    padding: 15px 30px; /* Adjust padding as needed */
+    font-size: 18px; /* Adjust font size as needed */
+    background-color: #1e3853; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Add a smooth transition effect */
+  }
+  
+  .button-container button:hover {
+    background-color: #0056b3; /* Change background color on hover */
+  }
+  
