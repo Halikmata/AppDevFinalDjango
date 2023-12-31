@@ -30,7 +30,7 @@ class TeachersAdmin(admin.ModelAdmin):
 
 @admin.register(Detention)
 class DetentionsAdmin(admin.ModelAdmin):
-    list_display = ['student', 'teacher', 'incident_time', 'fines', 'is_resolved', 'created_at', 'updated_at']
+    list_display = ['student', 'teacher', 'incident_time', 'start_time', 'end_time', 'fines', 'is_resolved', 'created_at', 'updated_at']
     search_fields = ['student__first_name', 'student__last_name', 'teacher__name', 'reason']
     list_filter = ['is_resolved', 'incident_time']
     

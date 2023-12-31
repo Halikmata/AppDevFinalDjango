@@ -27,6 +27,8 @@
             <th>Student Name</th>
             <th>Ordered By</th>
             <th>On</th>
+            <th>Starting</th>
+            <th>Duration</th>
             <th>Reason</th>
             <th>Fines</th>
             <th>Status</th>
@@ -38,6 +40,8 @@
             <td>{{ object.student.first_name }} {{ object.student.last_name }}</td>
             <td>{{ object.teacher.name }}</td>
             <td>{{ object.incident_time }}</td>
+            <td>{{ object.start_time }}</td>
+            <td>{{ object.duration }}</td>
             <td>{{ object.reason }}</td>
             <td>{{ object.fines }}</td>
             <td>{% if object.is_resolved %}Resolved{% else %}In effect{% endif %}</td>

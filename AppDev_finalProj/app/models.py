@@ -67,6 +67,8 @@ class Detention(BaseModel):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
     incident_time = models.DateTimeField()
+    start_time = models.DateTimeField()
+    end_time = models.DateTimeField()
     fines = models.DecimalField(max_digits=10, decimal_places=2)
     reason = models.TextField()
     is_resolved = models.BooleanField(default=False)
@@ -74,6 +76,10 @@ class Detention(BaseModel):
     def __str__(self):
         return f"{self.student.first_name} {self.student.last_name} Detention"
 
+    @property
+    def duration(self):
+        return self.end_time - self.start_time
+
     class Meta:
-        ordering = ['-incident_time']
+        ordering = ['-start_time']
         
