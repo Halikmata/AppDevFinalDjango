@@ -13,4 +13,8 @@ urlpatterns = [
     path('student_list', views.StudentList.as_view(), name='student-list'),
     
     path('guardian_list', views.GuardianList.as_view(), name='guardian-list'),
+    
+    path('subject_list', views.SubjectList.as_view(), name='subject-list'),
+    
+    path('detention_list', views.DetentionList.as_view(), name='detention-list'),
 ]

@@ -64,3 +64,33 @@ class GuardianList(ListView):
     def get_queryset(self, *args, **kwargs):
         qs = super(GuardianList, self).get_queryset(*args, **kwargs)
         return qs   
+    
+    # Subjects
+class SubjectList(ListView):
+    model = Subject
+    context_object_name = 'subject'
+    template_name = 'subject.html'
+    paginate_by = 5
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
+    def get_queryset(self, *args, **kwargs):
+        qs = super(SubjectList, self).get_queryset(*args, **kwargs)
+        return qs   
+    
+    # Detentions
+class DetentionList(ListView):
+    model = Detention
+    context_object_name = 'detention'
+    template_name = 'detention.html'
+    paginate_by = 5
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
+    def get_queryset(self, *args, **kwargs):
+        qs = super(DetentionList, self).get_queryset(*args, **kwargs)
+        return qs   
