@@ -77,6 +77,7 @@
   /*TEACHERS*/
   .teachers-container {
     min-height: auto;
+    min-width: auto;
     border-collapse: collapse;
     margin: 1%;
     display: flex;
@@ -116,7 +117,14 @@
   .teachers-container td b {
     color: #000000;
   }
-  
+
+  .teachers-container img {
+    max-width: 100px;  /* Ensure images don't exceed the container width */
+    max-height: 100px; 
+    height: auto;     /* Maintain aspect ratio */
+    display: block;   /* Remove extra space below inline images */
+    margin: 0 auto;   /* Center the image horizontally */
+  }
   /*-----------------------------COLLECTION_PAGE---------------------------------*/
   .collection-container {
     min-height: 100vh;
@@ -166,7 +174,7 @@
   
   /* Style for table headers */
   .styled-table th {
-    background-color: #f2f2f2; /* Header background color */
+    background-color: #3c3c3c; /* Header background color */
     padding: 8px;
     text-align: left;
     border: 1px solid #ddd; /* Border for the header cells */
@@ -181,12 +189,12 @@
   
   /* Alternate row background color */
   .styled-table tbody tr:nth-child(even) {
-    background-color: #ffdddd; /* Light red color for even rows */
+    background-color: #a8a1a1;
   }
   
   /* Alternate row background color for odd rows (to maintain white color) */
   .styled-table tbody tr:nth-child(odd) {
-    background-color: #ffffff; /* White color for odd rows */
+    background-color: #3c3c3c; 
   }
   
   /*-----------------------------POKEMON_CARD_PAGE-------------------------------*/
@@ -396,97 +404,6 @@
     border: solid 10px #cd1179;
   }
   
-  /*image backgroung*/
-  .card-image,
-  #normal-img {
-    background: radial-gradient(circle, transparent, #c0b89e);
-  }
-  
-  .card-image,
-  #fire-img {
-    background: radial-gradient(circle, transparent, #bb340e);
-  }
-  
-  .card-image,
-  #fighting-img {
-    background: radial-gradient(circle, transparent, #881415);
-  }
-  
-  .card-image,
-  #water-img {
-    background: radial-gradient(circle, transparent, #3355b6);
-  }
-  
-  .card-image,
-  #flying-img {
-    background: radial-gradient(circle, transparent, #2e6a87);
-  }
-  
-  .card-image,
-  #grass-img {
-    background: radial-gradient(circle, transparent, #247123);
-  }
-  
-  .card-image,
-  #poison-img {
-    background: radial-gradient(circle, transparent, #6f006c);
-  }
-  
-  .card-image,
-  #electric-img {
-    background: radial-gradient(circle, transparent, #c4a349);
-  }
-  
-  .card-image,
-  #ground-img {
-    background: radial-gradient(circle, transparent, #6e380c);
-  }
-  
-  .card-image,
-  #psychic-img {
-    background: radial-gradient(circle, transparent, #a91074);
-  }
-  
-  .card-image,
-  #rock-img {
-    background: radial-gradient(circle, transparent, #876c27);
-  }
-  
-  .card-image,
-  #ice-img {
-    background: radial-gradient(circle, transparent, #339085);
-  }
-  
-  .card-image,
-  #bug-img {
-    background: radial-gradient(circle, transparent, #445826);
-  }
-  
-  .card-image,
-  #dragon-img {
-    background: radial-gradient(circle, transparent, #3d327d);
-  }
-  
-  .card-image,
-  #ghost-img {
-    background: radial-gradient(circle, transparent, #614dbc);
-  }
-  
-  .card-image,
-  #dark-img {
-    background: radial-gradient(circle, transparent, #3d1a15);
-  }
-  
-  .card-image,
-  #steel-img {
-    background: radial-gradient(circle, transparent, #2d5171);
-  }
-  
-  .card-image,
-  #fairy-img {
-    background: radial-gradient(circle, transparent, #cd1179);
-  }
-  
   .pagination {
     display: flex;
     justify-content: center;
@@ -561,3 +478,52 @@
     background-color: #0056b3; /* Change background color on hover */
   }
   
+  img {
+    max-width: 40%; /* Maximum width is 100% of the container */
+    max-height: 40%; /* Maximum height is 100% of the container */
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+.page-item {
+  margin-right: 5px;
+}
+
+.page-link {
+  display: block;
+  padding: 8px 16px;
+  text-decoration: none;
+  border: 1px solid #000000;
+  color: #ffffff;
+  background-color: #565353;
+  border-radius: 5px; /* Rounded edges */
+  transition: background-color 0.3s ease;
+}
+
+.page-link:hover {
+  background-color: #f0f0f0;
+}
+
+/* Adjusted selectors to accommodate classes with spaces */
+.page-item.disabled {
+  /* Styles for disabled pagination item */
+  color: #6c757d;
+  pointer-events: none;
+  cursor: not-allowed;
+  background-color: #fff;
+  border-color: #dee2e6;
+}
+
+.page-item.active {
+  /* Styles for active pagination item */
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+  z-index: 3;
+}

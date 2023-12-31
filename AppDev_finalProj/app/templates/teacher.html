@@ -19,6 +19,7 @@
     {% block content %}
     <!--Teachers-->
     <main>
+    <div>{% include 'includes/pagination.html' %}</div>
     <section class="teachers-container">
       <table class="styled-table">
         <tbody>
@@ -33,8 +34,15 @@
 
           {% for object in object_list %}
 
-          <!--ASH-->
-            <td><img src="{{ object.image.url }}" alt="{{ "can't load image" }} Image"></td>
+            {% if object.image %}
+            <td>
+              <img src="{{ object.image.url }}" alt="can't load image" class="prod-size">
+            </td>
+            {% else %}
+            <td>
+              <img src="{"no"}" alt="No image" class="prod-size">
+            </td>
+            {% endif %}
             <td>{{ object.name }}</td>
             <td>
                 {% if object.subjects_taught.all %}
@@ -42,7 +50,7 @@
                         {{ subject.subject_name }}{% if not forloop.last %}, {% endif %}
                     {% endfor %}
                 {% else %}
-                    No Subjects Taught
+                    Not Teaching
                 {% endif %}
             </td>
             <td>{{ object.email }}</td>

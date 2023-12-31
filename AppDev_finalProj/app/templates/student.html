@@ -17,8 +17,8 @@
   <body>
 
     {% block content %}
-    <!--Teachers-->
     <main>
+      <div>{% include 'includes/pagination.html' %}</div>
     {% comment %} <a href="{% url 'teacher-add' %}" class="btn btn-outline-primary">Add New Teacher</a><br> {% endcomment %}
     <section class="teachers-container">
       <table class="styled-table">
